@@ -22,7 +22,7 @@ const Form = () => activeStep === 0
   : <PaymentForm />
 
   return (
-    <AddressForm>
+    <>
      <div className={classes.toolbar} />
      <main className={classes.layout}>
         <Paper className={classes.paper}>
@@ -37,7 +37,7 @@ const Form = () => activeStep === 0
             {activeStep === steps.length ? <Confirmation /> : <Form /> }
         </Paper> 
       </main> 
-    </AddressForm>
+    </>
   )
 }
 
