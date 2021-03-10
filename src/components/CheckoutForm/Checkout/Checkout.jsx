@@ -37,11 +37,21 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     nextStep();
   }
 
-const Confirmation = () => (
-  <div>
-    Confirmation
+const Confirmation = () => order.customer ? (
+  <>
+   <div>
+     <Typography variant="h5">Thank you for your purchase, firstName lastName</Typography>
+    <Divider className={classes.divider} />
+    <Typography variant="subtitle2">Order ref: ref</Typography>
+    </div>
+    <br />
+    <Button component={Link} to="/" variant="outlined" type="button"></Button>
+  </>
+) : (
+  <div className={classes.spinner}>
+    <CircularProgress />
   </div>
-);
+)
 
 const Form = () => activeStep === 0
   ? <AddressForm checkoutToken={checkoutToken} next={next} />
